@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reska Pay - Pembayaran Digital All-in-One</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="script.js" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <nav>
+    <div class="logo"><i class="fa-solid fa-credit-card"></i>Reska Pay</div>
+  
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeSwitch" />
+        <span class="slider"></span>
+      </label>
+      <i class="fa-solid fa-moon"></i>
+    </div>
+  </nav>
+
+  <header>
+  <div class="hero-text">
+    <h1>Selamat datang di <span class="highlight">Reska Pay</span></h1>
+    <p>Solusi pembayaran digital lengkap dan terpercaya.</p>
+  </div>
+  <img id="hero-banner" src="image/banner-img.jpg" alt="Ilustrasi pembayaran digital" />
+
+</header>
+
+<!-- Tulisan Berjalan -->
+<marquee behavior="scroll" direction="left" style="background: #f4f4f4; color: #333; padding: 10px; font-weight: bold;">
+  🎉 Promo Spesial! Cashback hingga 50% untuk pembelian pulsa & tagihan listrik di Reska Pay! 💳
+</marquee>
+
+  <main>
+    <section id="services">
+      <h2><i class="fa-solid fa-th-large"></i> Layanan Kami</h2>
+      <div class="service-tabs">
+        <button class="tab-btn active" data-target="e-wallet">E-Wallet</button>
+        <button class="tab-btn active" data-target="pulsa">Pulsa</button>
+        <button class="tab-btn active" data-target="data">Paket Data</button>
+        <button class="tab-btn active" data-target="tagihan">Pembayaran Tagihan</button>
+      </div>
+
+       <!-- Digital money -->
+      <div id="e-wallet" class="service-content active">
+        <div class="grid-services">
+          <div class="service-item">
+            <i class="fa-brands fa-paypal"></i>
+            <h3>Paypal</h3>
+            <a href="#">Bayar Sekarang</a>
+          </div>
+          <div class="service-item">
+            <i class="fa-brands fa-google-wallet"></i>
+            <h3>Google Wallet</h3>
+            <a href="#">Bayar Sekarang</a>
+          </div>
+        </div>
+      </div>
+
+<!-- Pulsa -->
+<div id="pulsa" class="service-content">
+  <div class="grid-services">
+    <div class="service-item">
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <h3>Telkomsel</h3>
+      <a href="#" onclick="showPulsaOptions('telkomsel'); return false;">Beli Pulsa</a>
+    </div>
+    <div class="service-item">
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <h3>XL</h3>
+      <a href="#" onclick="showPulsaOptions('xl'); return false;">Beli Pulsa</a>
+    </div>
+    <div class="service-item">
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <h3>Axis</h3>
+      <a href="#" onclick="showPulsaOptions('axis'); return false;">Beli Pulsa</a>
+    </div>
+    <div class="service-item">
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <h3>Indosat</h3>
+      <a href="#" onclick="showPulsaOptions('indosat'); return false;">Beli Pulsa</a>
+    </div>
+  </div>
+
+  <!-- Pilihan Nominal + Input -->
+  <div id="pulsa-options" style="display:none; margin-top:20px;">
+    <h4 id="operator-title" style="margin-bottom: 10px;"></h4>
+    <div id="nominal-grid" class="grid-nominal" style="display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); margin-bottom: 20px;">
+      <!-- Diisi oleh JavaScript -->
+    </div>
+
+    <!-- Input Nomor -->
+    <div>
+      <label for="phone-number">Nomor Telepon:</label><br />
+      <input type="tel" id="phone-number" placeholder="08xxxxxxxxxx"
+        style="padding: 10px; width: 100%; max-width: 300px; margin-top: 5px;" />
+    </div>
+
+    <!-- Tombol Bayar -->
+    <div style="margin-top: 15px;">
+      <button id="pay-button" onclick="submitPayment()"
+        style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Lanjut ke Pembayaran
+      </button>
+    </div>
+  </div>
+</div>
+
+
+ <!-- Telkomsel -->
+<div id="data" class="service-content">
+  <div class="grid-services">
+    <!-- Telkomsel -->
+    <div class="service-item">
+      <i class="fa-solid fa-signal"></i>
+      <h3>Data Telkomsel</h3>
+      <button onclick="showOptions('telkomsel-options')">Beli data</button>
+      <div id="telkomsel-options" class="data-options">
+        <h4>Pilih Paket:</h4>
+        <ul>
+          <li><a href="#">1 GB - Rp10.000</a></li>
+          <li><a href="#">5 GB - Rp25.000</a></li>
+          <li><a href="#">10 GB - Rp45.000</a></li>
+          <li><a href="#">20 GB - Rp80.000</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- XL -->
+    <div class="service-item">
+      <i class="fa-solid fa-signal"></i>
+      <h3>Data XL</h3>
+      <button onclick="showOptions('xl-options')">Beli data</button>
+      <div id="xl-options" class="data-options">
+        <h4>Pilih Paket:</h4>
+        <ul>
+          <li><a href="#">2 GB - Rp12.000</a></li>
+          <li><a href="#">6 GB - Rp28.000</a></li>
+          <li><a href="#">12 GB - Rp50.000</a></li>
+          <li><a href="#">25 GB - Rp90.000</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div id="tagihan" class="service-content">
+        <div class="grid-services">
+          <div class="service-item">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Tagihan Listrik</h3>
+            <a href="#">Bayar Sekarang</a>
+          </div>
+          <div class="service-item">
+            <i class="fa-solid fa-water"></i>
+            <h3>Tagihan Air</h3>
+            <a href="#">Bayar Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bill-checker" class="bill-checker">
+      <h2><i class="fa-solid fa-file-invoice-dollar"></i> Cek Tagihan Anda</h2>
+      <input type="text" class="form-input" id="billNumber" placeholder="Masukkan nomor tagihan atau ID pelanggan" />
+      <button class="cta-primary small" id="checkBillBtn">Cek Tagihan</button>
+      <div class="bill-result" id="billResult"></div>
+    </section>
+
+  </main>
+  <!-- Payment Methods -->
+    <section>
+      <h2><i class="fas fa-credit-card"></i> Metode Pembayaran</h2>
+      <div class="payment-methods">
+        <p>Kami menerima berbagai metode pembayaran:</p>
+        <div class="method-icons">
+          <img src="image/bca.png" alt="BCA">
+          <img src="image/mandiri.png" alt="Mandiri">
+          <img src="image/bri.png" alt="BRI">
+          <img src="image/dana.png" alt="DANA">
+          <img src="image/ovo.png" alt="OVO">
+          <img src="image/gopay.png" alt="Gopay">
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <h2>Hubungi Kami</h2>
+      <ul class="features">
+        <li>
+          <i class="fas fa-phone-alt"></i>
+          <span>WhatsApp: <a href="https://wa.me/6285210453311">+62 852-1045-3311</a></span>
+        </li>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <span>Email: <a href="mailto:reskajaya34@gmail.com">reskajaya34@gmail.com</a></span>
+        </li>
+        <li>
+          <i class="fas fa-clock"></i>
+          <span>Jam Operasional: Senin-Sabtu, 08:00 - 20:00 WIB</span>
+        </li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#">Beranda</a>
+        <a href="#services">Layanan</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#contact">Kontak</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="copyright">© 2025 <a href="#">Reska Pay</a>. Semua Hak Dilindungi.</p>
+    </div>
+    
+    <a href="https://wa.me/628xxxxxxx" class="whatsapp-float">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+<div class="live-counter">
+  <i class="fas fa-users"></i>
+  <span><span id="transaction-count">1,243</span> transaksi hari ini</span>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
